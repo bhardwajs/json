@@ -647,4 +647,11 @@ TEST_CASE("JSON pointers")
         CHECK(j[ptr] == j["object"]["/"]);
         CHECK(ptr.to_string() == "/object/~1");
     }
+
+    SECTION("op<<")
+    {
+        nlohmann::basic_json<std::map, std::vector, std::string, bool, int64_t> a_different_instantiation_of_basic_json;
+        nlohmann::json::json_pointer ptr;
+        CHECK(ptr == ptr);
+    }
 }
